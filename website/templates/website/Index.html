@@ -15,20 +15,22 @@
                     }
                 }
             }'>
+
+            {% for x in banner %}
             <div class="intro-slide"
-                style="background-image: url({% static 'assets/images/demos/demo-4/slider/slide-1.png' %});">
+                style="background-image: url({{ x.image.url }});">
                 <div class="container intro-content">
                     <div class="row justify-content-end">
                         <div class="col-auto col-sm-7 col-md-6 col-lg-5">
-                            <h3 class="intro-subtitle text-third">Deals and Promotions</h3>
+                            <h3 class="intro-subtitle text-third">{{ x.name_Promotions }}</h3>
                             <!-- End .h3 intro-subtitle -->
-                            <h1 class="intro-title">Beats by</h1>
-                            <h1 class="intro-title">Dre Studio 3</h1><!-- End .intro-title -->
+                            <h1 class="intro-title">{{ x.intro_title1 }}</h1>
+                            <h1 class="intro-title">{{ x.intro_title2 }}</h1><!-- End .intro-title -->
 
                             <div class="intro-price">
-                                <sup class="intro-old-price">$349,95</sup>
+                                <sup class="intro-old-price">${{ x.old_price }}</sup>
                                 <span class="text-third">
-                                    $279<sup>.99</sup>
+                                    ${{ x.new_price }}<sup>{{ x.new_price_sub }}</sup>
                                 </span>
                             </div><!-- End .intro-price -->
 
@@ -41,7 +43,9 @@
                 </div><!-- End .intro-content -->
             </div><!-- End .intro-slide -->
 
-            <div class="intro-slide"
+            {% endfor %}
+
+            {% comment %} <div class="intro-slide"
                 style="background-image: url({% static 'assets/images/demos/demo-4/slider/slide-2.png' %});">
                 <div class="container intro-content">
                     <div class="row justify-content-end">
@@ -65,7 +69,7 @@
                         </div><!-- End .col-md-6 offset-md-6 -->
                     </div><!-- End .row -->
                 </div><!-- End .intro-content -->
-            </div><!-- End .intro-slide -->
+            </div><!-- End .intro-slide --> {% endcomment %}
         </div><!-- End .intro-slider owl-carousel owl-simple -->
 
         <span class="slider-loader"></span><!-- End .slider-loader -->
