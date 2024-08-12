@@ -1818,11 +1818,14 @@
                     }
                 }
             }'>
+            {% for i in brand %}
             <a href="#" class="brand">
-                <img src="{% static 'assets/images/brands/1.png' %}" alt="Brand Name">
+                <img src="{{i.img.url }}" alt="{{i.name }}">
             </a>
 
-            <a href="#" class="brand">
+            {% endfor %}
+
+            {% comment %} <a href="#" class="brand">
                 <img src="{% static 'assets/images/brands/2.png' %}" alt="Brand Name">
             </a>
 
@@ -1840,7 +1843,7 @@
 
             <a href="#" class="brand">
                 <img src="{% static 'assets/images/brands/6.png' %}" alt="Brand Name">
-            </a>
+            </a> {% endcomment %}
         </div><!-- End .owl-carousel -->
     </div><!-- End .container -->
 
@@ -1906,11 +1909,12 @@
                                         }
                                     }
                                 }'>
+                                {% for i in product %}
                                 <div class="product product-2">
                                     <figure class="product-media">
                                         <span class="product-label label-circle label-top">Top</span>
                                         <a href="product.html">
-                                            <img src="{% static 'assets/images/demos/demo-4/products/product-6.jpg' %}"
+                                            <img src="{{ i.image.url }}"
                                                 alt="Product image" class="product-image">
                                         </a>
 
@@ -1931,10 +1935,9 @@
                                         <div class="product-cat">
                                             <a href="#">Headphones</a>
                                         </div><!-- End .product-cat -->
-                                        <h3 class="product-title"><a href="product.html">Bose - SoundSport
-                                                wireless headphones</a></h3><!-- End .product-title -->
+                                        <h3 class="product-title"><a href="product.html">{{ i.name }}</a></h3><!-- End .product-title -->
                                         <div class="product-price">
-                                            $199.99
+                                            ${{ i.regular_price }}
                                         </div><!-- End .product-price -->
                                         <div class="ratings-container">
                                             <div class="ratings">
@@ -1955,7 +1958,9 @@
                                     </div><!-- End .product-body -->
                                 </div><!-- End .product -->
 
-                                <div class="product product-2">
+                                {% endfor %}
+
+                                {% comment %} <div class="product product-2">
                                     <figure class="product-media">
                                         <a href="product.html">
                                             <img src="{% static 'assets/images/demos/demo-4/products/product-7.jpg' %}"
@@ -2132,7 +2137,7 @@
                                                     class="sr-only">Color name</span></a>
                                         </div><!-- End .product-nav -->
                                     </div><!-- End .product-body -->
-                                </div><!-- End .product -->
+                                </div><!-- End .product --> {% endcomment %}
                             </div><!-- End .owl-carousel -->
                         </div><!-- .End .tab-pane -->
                         <div class="tab-pane p-0 fade" id="trending-best-tab" role="tabpanel"
