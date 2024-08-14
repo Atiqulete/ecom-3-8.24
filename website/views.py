@@ -30,7 +30,15 @@ def contact(request):
     return render(request,'website/contact.html',{'form':form})
 
 
+def pro_deta(request,pk):
+    pro = Product.objects.get(pk=pk)
+    context = {
+        'pro':pro,
+    }
+    return render(request,'website/product.html',context)
 
 
-  
+
+
+
 
